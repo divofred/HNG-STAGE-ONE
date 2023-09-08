@@ -29,7 +29,7 @@ app.get('/api', (req, res) => {
   console.log(day);
   // Return Current UTC time (with validation of +/-2)
 
-  const utc_time = `${date.toISOString().slice(0, -2)}Z`;
+  const utc_time = date.toString().replace(/\.\d+Z/, 'Z');
   const github_file_url =
     'https://github.com/divofred/HNG-STAGE-ONE/repo/blog/main/server.js';
   const github_repo_url = 'https://github.com/divofred/HNG-STAGE-ONE';
