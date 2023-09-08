@@ -30,8 +30,9 @@ app.get('/api', (req, res) => {
   // Return Current UTC time (with validation of +/-2)
 
   const utc_time = date.toISOString();
-  const github_file_url = '';
-  const github_repo_url = '';
+  const github_file_url =
+    'https://github.com/divofred/HNG-STAGE-ONE/repo/blog/main/server.js';
+  const github_repo_url = 'https://github.com/divofred/HNG-STAGE-ONE';
   const status_code = 200;
   // return Current UTC time (with validation of +/-2), Track, The GitHub URL of the file being run,  The GitHub URL of the full source code., A  Status Code of Success
   res.status(200).json({
@@ -40,6 +41,7 @@ app.get('/api', (req, res) => {
     utc_time,
     track,
     github_file_url,
+    github_repo_url,
     status_code
   });
 });
