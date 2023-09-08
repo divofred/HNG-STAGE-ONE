@@ -25,11 +25,11 @@ app.get('/api', (req, res) => {
     'Friday',
     'Saturday'
   ];
-  const currentDay = days[day];
+  const current_day = days[day];
   console.log(day);
   // Return Current UTC time (with validation of +/-2)
 
-  const utc_time = date.toISOString();
+  const utc_time = `${date.toISOString().slice(0, -2)}Z`;
   const github_file_url =
     'https://github.com/divofred/HNG-STAGE-ONE/repo/blog/main/server.js';
   const github_repo_url = 'https://github.com/divofred/HNG-STAGE-ONE';
@@ -37,7 +37,7 @@ app.get('/api', (req, res) => {
   // return Current UTC time (with validation of +/-2), Track, The GitHub URL of the file being run,  The GitHub URL of the full source code., A  Status Code of Success
   res.status(200).json({
     slack_name,
-    currentDay,
+    current_day,
     utc_time,
     track,
     github_file_url,
